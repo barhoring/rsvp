@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //import Guest from './Guest';
 import GuestName from './GuestName';
-import btnText from './btnText';
 
 const Guest = props => 
     <li>
@@ -20,8 +19,7 @@ const Guest = props =>
                 /> 
             Confirmed
         </label>
-        <btnText isEditting={props.isEditting} />
-        <button id="btnEditSave" onClick={props.handleToggleEditting} >edit</button>
+        <button onClick={props.handleToggleEditting} isEditting={props.isEditting} >{props.btnText}</button>
         <button>remove</button>
     </li>
 
@@ -33,7 +31,9 @@ Guest.propTypes = {
     isEditting: PropTypes.bool.isRequired,
     handleConfirmation: PropTypes.func.isRequired,
     handleToggleEditting: PropTypes.func.isRequired,
-    setName: PropTypes.func.isRequired
+    setName: PropTypes.func.isRequired,
+    btnText: PropTypes.string.isRequired
+
 };
 
 export default Guest;
