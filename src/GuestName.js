@@ -1,10 +1,19 @@
-import React from 'raact';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const GuestName = props =>
+const GuestName = props =>{
+    if(props.isEditting){
+    return (<input type='text' 
+        value={props.children}
+        onChange={props.handleNameEdits}
+        />);
+    }
+    return (<span>{props.children}</span>);
+}
 
-GuestName.PropTypes = {
-
+GuestName.propTypes = {
+    isEditting: PropTypes.bool.isRequired,
+    handleNameEdits: PropTypes.func.isRequired
 };
 
 export default GuestName;
