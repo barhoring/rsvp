@@ -19,11 +19,9 @@ const Guest = props =>
                 /> 
             Confirmed
         </label>
-        <button onClick={props.handleToggleEditting} isEditting={props.isEditting} >{props.btnText}</button>
+        <button onClick={props.handleToggleEditting} >{props.isEditting ? "save" : "edit"}</button>
         <button>remove</button>
     </li>
-
-
 
 Guest.propTypes = {
     name: PropTypes.string.isRequired,
@@ -32,8 +30,6 @@ Guest.propTypes = {
     handleConfirmation: PropTypes.func.isRequired,
     handleToggleEditting: PropTypes.func.isRequired,
     setName: PropTypes.func.isRequired,
-    btnText: PropTypes.string.isRequired
-
 };
 
 export default Guest;

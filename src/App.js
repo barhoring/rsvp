@@ -46,10 +46,6 @@ class App extends Component {
     //this.updateBtnText(indexToChange);
   }
 
-  btnText = indexToChange => {
-    return this.state.guests[indexToChange].isEditting ? 'save' : 'edit';
-  }
-
   setNameAt = (name, indexToChange) => 
     this.setState({
       guests: this.state.guests.map((guest, index) => {
@@ -107,7 +103,6 @@ class App extends Component {
           toggleConfirmationAt ={this.toggleConfirmationAt}
           toggleEdittingAt ={this.toggleEdittingAt}
           setNameAt = {this.setNameAt}
-          btnText = {this.btnText}
           />
 
       </div>
