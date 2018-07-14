@@ -6,6 +6,7 @@ class App extends Component {
 
   state = {
     isFiltered: false,
+    pendingGuest: "",
     guests: [
       {
         name: 'Treasure',
@@ -38,13 +39,47 @@ class App extends Component {
       })
   });
 
+  handleNameInput =  e => {
+    this.setState({
+      pendingGuest: e.target.value
+    });
+  }
+
+  addNewGuest = () =>  {
+    let newGuestName = this.state.pendingGuest;
+    this.state.guests.push({
+      name: newGuestName,
+      isConfirmed: false,
+      isEditting: false
+    });
+    debugger;
+    this.setState({
+      pendingGuest: ''
+    })
+  }
+
+  newGuestSubmitHandler = e => {
+    e.preventDefault();
+    this.setState({
+      guests: [
+        {
+          name: this.state.pendingGuest,
+          isConfirmed: false,
+          isEditting: false
+        },
+        ...this.state.guests
+      ],
+      pendingGuest: ''
+    });
+  }
+
+
   toggleConfirmationAt = indexToChange =>
       this.toggleGuestPropertyAt("isConfirmed", indexToChange);
 
   toggleEdittingAt = indexToChange =>{
-    //debugger;
+    debugger;
     this.toggleGuestPropertyAt("isEditting", indexToChange);
-    //this.updateBtnText(indexToChange);
   }
 
   setNameAt = (name, indexToChange) => 
@@ -65,6 +100,16 @@ class App extends Component {
       isFiltered: !this.state.isFiltered
     });
 
+  removeGuestAt = index => {
+    debugger;
+    this.setState({
+      guests: [
+        ...this.state.guests.slice(0, index),
+        ...this.state.guests.slice(index + 1)
+      ]
+    });
+  }
+
   getTotalInvited = () => this.state.guest.length;
   // getAttendingGuests = () =>
   // getUnvonfirmedGuests =() =>
@@ -75,8 +120,13 @@ class App extends Component {
       <header>
         <h1>RSVP</h1>
         <p>A Treehouse App</p>
-        <form>
-            <input type="text" value="Safia" placeholder="Invite Someone" />
+        <form onSubmit={this.newGuestSubmitHandler}>
+            <input
+              type="text"
+              onChange={this.handleNameInput}
+              value={this.state.pendingGuest}
+              placeholder="Invite someone"
+              />
             <button type="submit" name="submit" value="submit">Submit</button>
         </form>
       </header>
@@ -114,6 +164,7 @@ class App extends Component {
           toggleEdittingAt ={this.toggleEdittingAt}
           setNameAt = {this.setNameAt}
           isFiltered = {this.state.isFiltered}
+          removeGuestAt ={this.removeGuestAt}
           />
 
       </div>
