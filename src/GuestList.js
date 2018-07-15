@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Guest from './Guest';
+import PendingGuest from './PendingGuest';
 
 const GuestList = props => 
     <ul>
+        <PendingGuest name={props.pendingGuest} />>
         {props.guests
             .filter((guest) => guest.isConfirmed || !props.isFiltered)
                 .map((guest, index) => 
