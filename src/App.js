@@ -3,6 +3,7 @@ import './App.css';
 import GuestList from './GuestList';
 import Counter from './Counter';
 import Header from './Header';
+import MainContent from './MainContent';
 
 class App extends Component {
 
@@ -124,7 +125,18 @@ class App extends Component {
     return (
       <div className="App">
       <Header newGuestSubmitHandler={this.newGuestSubmitHandler} handleNameInput={this.handleNameInput} pendingGuest={this.state.pendingGuest} />
-      <div className="main">
+      <MainContent 
+        toggleFilter={this.toggleFilter}
+        isFiltered={this.isFiltered}
+        guests
+        toggleConfirmationAt
+        toggleEdittingAt
+        setNameAt
+        removeGuestAt
+        pendingGuest
+      
+      />
+      {/* <div className="main">
         <div>
           <h2>Invitees</h2>
           <label>
@@ -147,7 +159,7 @@ class App extends Component {
           pendingGuest={this.state.pendingGuest}
           />
 
-      </div>
+      </div> */}
     </div>
     );
   }
