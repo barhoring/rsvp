@@ -23,7 +23,7 @@ const Counter = props => {
     );
 }
 
-Counter.PropTypes = {
+Counter.propTypes = {
     numberAttending: PropTypes.number,
     numberUnconfirmed: PropTypes.number,
     totalInvited: PropTypes.number

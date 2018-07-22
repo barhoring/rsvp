@@ -19,27 +19,27 @@ const MainContent = props => {
 
             <GuestList 
                 guests={props.guests}
-                toggleConfirmationAt ={props.toggleConfirmationAt}
-                toggleEdittingAt ={props.toggleEdittingAt}
-                setNameAt = {props.setNameAt}
+                toggleConfirmation ={props.toggleConfirmation}
+                toggleEditting ={props.toggleEditting}
+                setName = {props.setName}
                 isFiltered = {props.isFiltered}
-                removeGuestAt ={props.removeGuestAt}
+                removeGuest ={props.removeGuest}
                 pendingGuest={props.pendingGuest}
             />
         </div>
     );
 }
 
-MainContent.PropTypes = {
+MainContent.propTypes = {
     getTotalInvited: PropTypes.func.isRequired,
     getAttendingGuests: PropTypes.func.isRequired, 
     toggleFilter: PropTypes.func.isRequired,
     isFiltered: PropTypes.bool.isRequired,
     guests: PropTypes.array.isRequired,
-    toggleConfirmationAt: PropTypes.func.isRequired,
-    toggleEdittingAt: PropTypes.func.isRequired,
-    setNameAt: PropTypes.func.isRequired,
-    removeGuestAt: PropTypes.func.isRequired,
+    toggleConfirmation: PropTypes.func.isRequired,
+    toggleEditting: PropTypes.func.isRequired,
+    setName: PropTypes.func.isRequired,
+    removeGuest: PropTypes.func.isRequired,
     pendingGuest: PropTypes.string.isRequired
 }
 

@@ -16,7 +16,7 @@ const Header = props =>
         </form>
     </header>
 
-Header.PropTypes = {
+Header.propTypes = {
     newGuestSubmitHandler: PropTypes.func.isRequired,
     handleNameInput: PropTypes.func.isRequired,
     pendingGuest: PropTypes.string.isRequired
